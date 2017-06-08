@@ -2,27 +2,37 @@
 <div class="BodyStandard">
 <?php
 include_once "header.php";
-include_once "webservice.php";
+include_once "bdd/connexion.php";
+include_once "bdd/AnimeManager.php";
+include_once "bdd/FilmManager.php";
+include_once "bdd/MangaManager.php";
+include_once "bdd/SerieManager.php";
+include_once "bdd/SpectacleManager.php";
 
 
 if(isset($_POST['ValiderAnime'])){
-	SaisieAnime();	
+	$anime = new AnimeManager($db);
+        $anime->SaisieAnime($db,$_POST['nom'],$_POST['duree'],$_POST['support']);	
 }
 
 if(isset($_POST['ValiderFilm'])){
-	SaisieFilm();
+    $film = new FilmManager($db);
+    $film->SaisieFilm($db,$_POST['nom'],$_POST['auteur'],$_POST['annee'],$_POST['duree'],$_POST['support']);
 }
 
 if(isset($_POST['ValiderManga'])){
-	SaisieManga();
+    $manga = new MangaManager($db);
+    $manga->SaisieManga($db,$_POST['nom'],$_POST['episode'],$_POST['saison'],$_POST['annee'],$_POST['duree'],$_POST['support']);
 }
 
 if(isset($_POST['ValiderSerie'])){
-	SaisieSerie();
+    $serie = new SerieManager($db);
+    $serie->SaisieSerie($db,$_POST['nom'],$_POST['episode'],$_POST['saison'],$_POST['annee'],$_POST['duree'],$_POST['support']);
 }
 
 if(isset($_POST['ValiderSpectacle'])){
-	SaisieSpectacle();
+    $spectacle = new SpectacleManager($db);
+    $spectacle->SaisieSpectacle($db,$_POST['nom'],$_POST['auteur'],$_POST['annee'],$_POST['support']);
 }
 
 

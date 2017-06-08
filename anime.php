@@ -2,12 +2,37 @@
 	<div class="bodyAnime">
 		<?php
 		include_once "header.php";
-		include_once "webservice.php";
+		include_once "bdd/AnimeManager.php";
+                include_once 'bdd/connexion.php';
 		?>
 		<section>
-				<div class="transbox" id="transboxanime">
+			<?php
+                                // appel pour la suppression
+
+                                 if (isset($_GET['id1'])){
+                                    $anime = new AnimeManager($db);
+                                    $anime->deleteAnime($db);
+                                }	
+                                
+                                // appel modif	
+                                if (isset($_GET['id2'])){
+                                    $anime = new AnimeManager($db);
+                                    $anime->modificationAnime($db);
+
+                                }	
+
+                                if (isset($_POST['modifAnime'])){
+                                    $anime = new AnimeManager($db);
+                                    $anime->UpdateAnime($db);
+                                }
+                        
+                        ?>
+                    
+                            <div class="transbox" id="transboxanime">
 				<?php
-				ListeAnime();
+				$anime = new AnimeManager($db);
+                                $anime->ListeAnime($db);
+     
 				// Masquer la div transbox
 				if (isset($_GET['id2'])){
 					?>

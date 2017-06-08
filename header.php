@@ -27,39 +27,37 @@
 			<ul>
 			<li> <!-- Recherche Anime -->
 			<form style="width:400px; float: left; margin-top: 10px;" action="searchAnime.php" method="post">
-					<span style=" color:white; text-align: center;">Anime :</span> 
-					<input "type="text" id="search" name="search"/>
+                            <span style=" color:white; text-align: center;">Anime :</span> </br>
+					<input type="text" id="search" name="search"/>
 			</form>		
 			</li>
 			<li> <!-- Recherche Film -->
 			<form style="width:400px; float: left; margin-top: 10px;" action="searchFilm.php" method="post">
-					<span style=" color:white; text-align: center;">Film :</span> 
-					<input "type="text" id="search" name="search"/>
+					<span style=" color:white; text-align: center;">Film :</span> </br>
+					<input type="text" id="search" name="search"/>
 			</form>		
 			</li>				
 			<li> <!-- Recherche Manga -->
 				<form style="width:400px; float: left; margin-top: 10px;" action="searchManga.php" method="post">
-					<span style=" color:white; text-align: center;">Manga :</span> 
-					<input "type="text" id="search" name="search"/>
+					<span style=" color:white; text-align: center;">Manga :</span> </br>
+					<input type="text" id="search" name="search"/>
 				</form>		
 			</li>
 			 <!-- Recherche Serie -->
 			<li> 
 			<form style="width:400px; float: left; margin-top: 10px;" action="searchSerie.php" method="post">
-					<span style=" color:white; text-align: center;">Serie :</span> 
-					<input "type="text" id="search" name="search"/>
+					<span style=" color:white; text-align: center;">Serie :</span> </br>
+					<input type="text" id="search" name="search"/>
 			</form>		
 			</li>
 			<li> <!-- Recherche Spectacle -->
 			<form style="width:400px; float: left; margin-top: 10px;" action="searchSpectacle.php" method="post">
-					<span style=" color:white; text-align: center;">Spectacle :</span> 
-					<input "type="text" id="search" name="search"/>
+					<span style=" color:white; text-align: center;">Spectacle :</span> </br>
+					<input type="text" id="search" name="search"/>
 			</form>		
 			</li>
 			</ul>
 		</li>		
-		
-		<li style="float:right"><a class="active" href="information.php">Information</a></li>
 
 	</ul>
 </nav>
