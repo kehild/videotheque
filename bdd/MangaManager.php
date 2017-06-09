@@ -20,20 +20,20 @@ class MangaManager{
 				echo "<th>"; echo "Saison"; echo "</th>";
 				echo "<th>"; echo "Année"; echo "</th>";
 				echo "<th>"; echo "Duree"; echo "</th>";
-				echo "<th>"; echo "Support"; echo "</th>";
-				echo "<th>"; echo "Modifier"; echo "</th>";
-				echo "<th>"; echo "Supprimer"; echo "</th></tr>";						
+				echo "<th>"; echo "Support"; echo "</th></tr>";
+			//	echo "<th>"; echo "Modifier"; echo "</th>";
+			//	echo "<th>"; echo "Supprimer"; echo "</th></tr>";						
 		
 		foreach(($stmt->fetchAll()) as $toto){
 							
-				echo "<tr><th>"; echo (utf8_encode($toto['nom'])); echo "</th>";
+				echo "<tr><th>"; echo ($toto['nom']); echo "</th>";
 				echo "<th>"; echo $toto['episode']; echo "</th>";
 				echo "<th>"; echo $toto['saison']; echo "</th>";
 				echo "<th>"; echo $toto['annee']; echo "</th>";
 				echo "<th>"; echo $toto['duree']; echo "</th>";
-				echo "<th>"; echo $toto['support']; echo "</th>";
-				echo "<th>"; echo '<a href="?id4='.$toto['id'].'"><img src="image/modifier.png"></a>'; echo "</th>";
-				echo "<th>"; echo '<a href="?id1='.$toto['id'].'"><img src="image/delete.png"></a>'; echo "</th></tr>";		
+				echo "<th>"; echo $toto['support']; echo "</th></tr>";
+			//	echo "<th>"; echo '<a href="?id4='.$toto['id'].'"><img src="image/modifier.png"></a>'; echo "</th>";
+			//	echo "<th>"; echo '<a href="?id1='.$toto['id'].'"><img src="image/delete.png"></a>'; echo "</th></tr>";		
 			
 		}
 		echo "</table>";
@@ -86,7 +86,7 @@ while($donnees_messages=$retour_messages->fetch()){ // On lit les entrées une �
      //Je vais afficher les messages dans des petits tableaux. C'est à vous d'adapter pour votre design...
      //De plus j'ajoute aussi un nl2br pour prendre en compte les sauts à la ligne dans le message.
 				
-		echo "<tr><th>"; echo (utf8_encode(stripslashes($donnees_messages['nom']))); echo "</th>";
+		echo "<tr><th>"; echo (stripslashes($donnees_messages['nom'])); echo "</th>";
 		echo "<th>"; echo stripslashes($donnees_messages['episode']); echo "</th>";
 		echo "<th>"; echo stripslashes($donnees_messages['saison']); echo "</th>";
 		echo "<th>"; echo stripslashes($donnees_messages['annee']); echo "</th>";
@@ -200,7 +200,7 @@ function modificationManga($db){
 						   <option value="PC/DVD">PC/DVD</option>
 					</select>
 					</br>
-					<input type="submit" id="modifManga" name="modifManga" value="Modifier" onclick="javascript:location.reload();">
+					<input type="submit" id="modifManga" name="modifManga" value="Modifier">
 				  </form>
 				</div> <?php
 					}					
@@ -211,9 +211,8 @@ function UpdateManga($db){
 		try {
 			$sql = "UPDATE manga SET nom='" .$_POST['nom']. "', episode='" .$_POST['episode']. "', saison='" .$_POST['saison']. "',annee='" .$_POST['annee']. "',duree='" .$_POST['duree']. "',support='" .$_POST['support']. "' WHERE id='" .$_GET['id4']. "'";		
 			$db->exec($sql);
-				
-				echo "Modification réussi";
-				
+			echo "Modification réussi";
+			echo '<meta http-equiv="refresh" content="0;URL=manga.php?id='.$_GET['id'].'">';	
 			}
 			catch(Exception $e){
 				

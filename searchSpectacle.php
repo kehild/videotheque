@@ -9,6 +9,23 @@ include_once "bdd/SpectacleManager.php";
 				</br>
 				<div id="slider" style=color:black;>
 					<?php
+                                        
+                                        if (isset($_GET['id1'])){
+                                            $spectacle = new SpectacleManager($db);
+                                            $spectacle->deleteSpectacle($db);
+                                        }	
+
+                                        // appel modif	
+                                        if (isset($_GET['id6'])){
+                                            $spectacle = new SpectacleManager($db);    
+                                            $spectacle->modificationSpectacle($db);
+                                        }
+
+                                        if (isset($_POST['modifSpecacle'])){
+                                            $spectacle = new SpectacleManager($db);
+                                            $spectacle->UpdateSpectacle($db);
+                                        }
+                                        
 					$spectacle = new SpectacleManager($db);
                                         $spectacle->searchSpectacle($db);
 					?>

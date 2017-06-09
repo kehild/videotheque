@@ -19,18 +19,18 @@ class SpectacleManager{
 				echo "<tr><th>"; echo "Nom"; echo "</th>";
 				echo "<th>"; echo "Auteur"; echo "</th>";
 				echo "<th>"; echo "Année"; echo "</th>";
-				echo "<th>"; echo "Support"; echo "</th>";
-				echo "<th>"; echo "Modifier"; echo "</th>";
-				echo "<th>"; echo "Supprimer"; echo "</th></tr>";				
+				echo "<th>"; echo "Support"; echo "</th></tr>";
+				//echo "<th>"; echo "Modifier"; echo "</th>";
+				//echo "<th>"; echo "Supprimer"; echo "</th></tr>";				
 		
 		foreach(($stmt->fetchAll()) as $toto){
 							
-				echo "<tr><th>"; echo (utf8_encode($toto['nom'])); echo "</th>";
-				echo "<th>"; echo (utf8_encode($toto['auteur'])); echo "</th>";
+				echo "<tr><th>"; echo ($toto['nom']); echo "</th>";
+				echo "<th>"; echo ($toto['auteur']); echo "</th>";
 				echo "<th>"; echo $toto['annee']; echo "</th>";
-				echo "<th>"; echo $toto['support']; echo "</th>";
-				echo "<th>"; echo '<a href="?id6='.$toto['id'].'"><img src="image/modifier.png"></a>'; echo "</th>";
-				echo "<th>"; echo '<a href="?id1='.$toto['id'].'"><img src="image/delete.png"></a>'; echo "</th></tr>";
+				echo "<th>"; echo $toto['support']; echo "</th></tr>";
+			//	echo "<th>"; echo '<a href="?id6='.$toto['id'].'"><img src="image/modifier.png"></a>'; echo "</th>";
+			//	echo "<th>"; echo '<a href="?id1='.$toto['id'].'"><img src="image/delete.png"></a>'; echo "</th></tr>";
 						
 			
 		}
@@ -83,8 +83,8 @@ function ListeSpectacle($db){
              //Je vais afficher les messages dans des petits tableaux. C'est à vous d'adapter pour votre design...
              //De plus j'ajoute aussi un nl2br pour prendre en compte les sauts à la ligne dans le message.
 
-                        echo "<tr><th>"; echo (utf8_encode(stripslashes($donnees_messages['nom']))); echo "</th>";
-                        echo "<th>"; echo (utf8_encode(stripslashes($donnees_messages['auteur']))); echo "</th>";
+                        echo "<tr><th>"; echo (stripslashes($donnees_messages['nom'])); echo "</th>";
+                        echo "<th>"; echo (stripslashes($donnees_messages['auteur'])); echo "</th>";
                         echo "<th>"; echo stripslashes($donnees_messages['annee']); echo "</th>";
                         echo "<th>"; echo stripslashes($donnees_messages['support']); echo "</th>";
                         echo "<th>"; echo '<a href="?id6='.$donnees_messages['id'].'"><img src="image/modifier.png"></a>'; echo "</th>";
@@ -170,10 +170,10 @@ function modificationSpectacle($db){
 				   <option value="PC/DVD">PC/DVD</option>
 				</select>
 				</br>
-				<input type="submit" id="modifSpecacle" name="modifSpecacle" value="Modifier" onclick="javascript:location.reload();">
+				<input type="submit" id="modifSpecacle" name="modifSpecacle" value="Modifier">
 			  </form>
 			</div> 
-			<?php
+			<?php 
 									
 		}
 }	
@@ -185,6 +185,7 @@ function UpdateSpectacle($db){
 			$sql = "UPDATE spectacle SET nom='" .$_POST['nom']. "', auteur='" .$_POST['auteur']. "', annee='" .$_POST['annee']. "', support='" .$_POST['support']. "' WHERE id='" .$_GET['id6']. "'";
 			$db->exec($sql);
 			echo "Modification réussi";
+                        echo '<meta http-equiv="refresh" content="0;URL=spectacle.php?id='.$_GET['id'].'">';
 				
 		}catch(Exception $e){
 				

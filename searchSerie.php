@@ -9,6 +9,23 @@ include_once "bdd/SerieManager.php";
 				</br>
 				<div id="slider" style=color:black;>
 					<?php
+                                        
+                                        if (isset($_GET['id1'])){
+                                            $serie = new SerieManager($db);
+                                            $serie->deleteSerie($db);
+                                        }	
+
+                                        // appel modif	
+                                        if (isset($_GET['id5'])){
+                                            $serie = new SerieManager($db);
+                                            $serie->modificationSerie($db);
+                                        }
+
+                                        if (isset($_POST['modifSerie'])){
+                                            $serie = new SerieManager($db);
+                                            $serie->UpdateSerie($db);
+                                        }
+                                        
 					$serie = new SerieManager($db);
                                         $serie->searchSerie($db);
 					?>

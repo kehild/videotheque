@@ -9,6 +9,24 @@ include_once "bdd/FilmManager.php";
 				</br>
 				<div id="slider" style=color:black;>
 					<?php
+                                        // appel pour la suppression
+
+                                        if (isset($_GET['id1'])){
+                                            $film = new FilmManager($db);
+                                            $film->deleteFilm($db);
+                                        }	
+
+                                        // appel modif	
+                                        if (isset($_GET['id3'])){
+                                            $film = new FilmManager($db);
+                                            $film->modificationFilm($db);
+                                        }
+
+                                        if (isset($_POST['modifFilm'])){
+                                            $film = new FilmManager($db);
+                                            $film->UpdateFilm($db);
+                                        }
+                                        
                                            $film = new FilmManager($db);
                                            $film->searchFilm($db);
 					?>

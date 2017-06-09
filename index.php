@@ -34,22 +34,7 @@
                                                     echo "Dernier Spectacle Rentrée";
                                                     echo "</br></br>";
                                                     $spectacle = new SpectacleManager($db);
-                                                    $spectacle->DernierSpectacle($db);
-                                                    
-                                                    // delete anime
-                                                    
-                                            /*        if (isset($_GET['id1'])){
-                                                       $anime = new AnimeManager($db);
-                                                       $anime->deleteAnime($db);
-                                                   }*/
-                                                     //  modif	anime
-                                                   
-                                               /*     if (isset($_GET['id2'])){
-                                                        $anime = new AnimeManager($db);
-                                                        $anime->modificationAnime($db);
-
-                                                    }*/
-                                                    
+                                                    $spectacle->DernierSpectacle($db);                                                
                                                     
                                                     
 						?>

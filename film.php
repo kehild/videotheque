@@ -6,7 +6,6 @@
                 include_once 'bdd/FilmManager.php';
 
 		?>
-
 		<section>
                     <?php
                         // appel pour la suppression
@@ -42,7 +41,7 @@
 					<?php
 				}	
 				?>
-				</div>		
+                        </div>		
 		</section>		
 		<?php
 			include_once "footer.php";
