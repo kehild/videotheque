@@ -1,13 +1,12 @@
+<body>
+<div class="bodySeach">
 <?php
 include_once"header.php";
 include_once "bdd/connexion.php";
 include_once "bdd/MangaManager.php";
 ?>
-	<body>
-		<section>
-			<div class="transbox">
+                <div class="transbox">
 				</br>
-				<div id="slider" style=color:black;>
 					<?php
                                         
                                             if (isset($_GET['id1'])){
@@ -29,9 +28,8 @@ include_once "bdd/MangaManager.php";
                                          $manga = new MangaManager($db);
                                          $manga->searchManga($db);
 					?>
-					</div>
-				</div>		
-		</section>		
+			</div>
+	</div>		
 </body>		
 <?php
 include_once "footer.php";	

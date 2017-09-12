@@ -1,14 +1,12 @@
-<?php
-include_once "header.php";
-include_once "bdd/connexion.php";
-include_once "bdd/AnimeManager.php";
-?>
-	<body>
-		<section>
-			<div class="transbox">
-				</br>
-				<div id="slider" style=color:black;>
-					<?php
+<body>
+    <div class="bodySeach">
+		<?php
+		include_once "header.php";
+		include_once "bdd/AnimeManager.php";
+                include_once 'bdd/connexion.php';
+		?>
+		<div class="transbox" id="transboxanime">			
+                    <?php
                                          // appel pour la suppression
 
                                             if (isset($_GET['id1'])){
@@ -32,11 +30,13 @@ include_once "bdd/AnimeManager.php";
                                         
                                         $anime = new AnimeManager($db);
                                         $anime->searchAnime($db);
-					?>
-					</div>
-				</div>		
-		</section>		
-</body>		
+					?>				
+
+	</div>	
+    </div>
+
+</body>
+			
 <?php
 include_once "footer.php";
 ?>

@@ -44,7 +44,7 @@ class AnimeManager{
 
                    echo "<tr><th>"; echo "Nom"; echo "</th>";
                    echo "<th>"; echo "Durée"; echo "</th>";
-                   echo "<th>"; echo "Support"; echo "</th></tr>";
+                   echo "<th>"; echo "Support"; echo "</th>";
                    echo "<th>"; echo "Modifier"; echo "</th>";
                    echo "<th>"; echo "Supprimer"; echo "</th></tr>";
 

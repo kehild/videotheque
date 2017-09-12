@@ -1,13 +1,12 @@
+<body>
+<div class="bodySeach">
 <?php
 include_once "header.php";
 include_once "bdd/connexion.php";
 include_once "bdd/SerieManager.php";
 ?>
-	<body>
-		<section>
-			<div class="transbox">
+		<div class="transbox">
 				</br>
-				<div id="slider" style=color:black;>
 					<?php
                                         
                                         if (isset($_GET['id1'])){
@@ -30,8 +29,7 @@ include_once "bdd/SerieManager.php";
                                         $serie->searchSerie($db);
 					?>
 					</div>
-				</div>		
-		</section>		
+				</div>			
 </body>		
 <?php
 
